@@ -1,0 +1,40 @@
+@use "sass:math";
+
+@function rem($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    @error "Input value has a unit (probably a px)";
+  }
+}
+
+@function em($pixel) {
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + em;
+  } @else {
+    @error "Input value has a unit (probably a px)";
+  }
+}
+
+// 700px, 900px. 1440px
+$breakpoints-up: (
+  "medium": em(600),
+  "large": em(900),
+);
+
+$breakpoints-down: (
+  "small": em(599.98),
+  "medium": em(899.98),
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}

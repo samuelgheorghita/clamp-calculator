@@ -1,0 +1,38 @@
+:root {
+  --primary: #58a4b0;
+  --primary-dark: #214c5e;
+  --primary-dark-2: rgba(33, 76, 94, 0.4);
+  --bg-primary: #efeff1;
+  --bg-primary-dark: hsl(0, 0%, 96.5%);
+  --bg-secondary: #1b1b1e;
+  --text-primary: #fff;
+  --text-primary-dark: #efeff1;
+  --text-secondary: #1b1b1e;
+  --text-extra: #58a4b0;
+  --yellow: #f2cb05;
+  --yellow-outline: yellow;
+  --svg-filter: invert(48%) sepia(47%) saturate(405%) hue-rotate(141deg) brightness(88%) contrast(83%); // #3a6c74
+  --copy-mess-bg: #ebebeb; // same as primejs theme
+  --copy-mess-text: black;
+}
+
+.darkmode {
+  --primary: #174152;
+  --primary-dark: rgb(14, 47, 59);
+  --primary-dark-2: rgba(14, 47, 59, 0.404);
+  --bg-primary: linear-gradient(-45deg, #12232a 70%, #0a1e26 100%, #12232a);
+  --bg-primary-dark: #174152;
+  --bg-secondary: #1b1b1e;
+  --text-primary: #efeff1;
+  --text-primary-dark: #efeff1;
+  --text-secondary: #efeff1;
+  --text-extra: #58a4b0;
+  --yellow: #ccaa00;
+  --yellow-outline: rgb(185, 185, 0);
+  --copy-mess-bg: #272822; // same as primejs theme
+  --copy-mess-text: white;
+
+  a {
+    color: #67d0ff;
+  }
+}

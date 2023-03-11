@@ -1,0 +1,29 @@
+.footer {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary-dark);
+  display: flex;
+  padding: 15px 25px;
+  font-family: "Lora";
+  font-size: 14px;
+
+  &__copyright {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 10px;
+
+    img {
+      display: block;
+    }
+  }
+
+  &__icon-linkedin {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+}

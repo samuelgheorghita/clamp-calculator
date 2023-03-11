@@ -1,0 +1,14 @@
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/dist",
+      "savePathReplacementPairs": null
+    }
+  ],
+  // Following command used to show @debug logs
+  "liveSassCompile.settings.showOutputWindowOn": "Debug",
+  "liveServer.settings.port": 5502,
+  "svg.preview.background": "transparent"
+}

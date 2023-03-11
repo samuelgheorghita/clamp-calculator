@@ -1,0 +1,27 @@
+@use "./breakpoints" as u;
+
+.visually-hidden {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: min(860px, 100%);
+  margin-inline: auto;
+}
+
+.input {
+  background-color: var(--primary-dark);
+  color: var(--text-primary);
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: clamp(1rem, 0.345rem + 1.342vw, 1.125rem);
+  font-weight: bold;
+  display: inline-block;
+  width: 80px;
+}

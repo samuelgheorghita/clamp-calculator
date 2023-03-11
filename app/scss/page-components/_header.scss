@@ -1,0 +1,34 @@
+@use "../typography" as t;
+
+.main-header {
+  h1 {
+    min-height: 300px;
+    // font-size: 22px;
+    @include t.clamp-px(10, 50, 100, 600);
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+    // background-color: #0a1e26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn-darkmode {
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 3px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    img {
+      width: 25px;
+      height: 25px;
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(3deg) brightness(107%) contrast(101%);
+    }
+  }
+}
+
+main {
+  background: var(--bg-primary);
+}

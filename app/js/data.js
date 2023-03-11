@@ -1,0 +1,73 @@
+export const codeData = [
+  `@function clamp-px($minFont, $maxFont, $minVp: 320, $maxVp: 1000) {
+  @if not unitless($minFont) or not unitless($maxFont) {
+    @warn "Font arguments should be unitless";
+  }
+  @if not unitless($minVp) or not unitless($maxVp) {
+    @warn "Viewport arguments should be unitless";
+  }
+  $minFont: calc($minFont / 16);
+  $maxFont: calc($maxFont / 16);
+  $minVp: calc($minVp / 16);
+  $maxVp: calc($maxVp / 16);
+
+  // y = mx + q
+  $m: calc(($maxFont - $minFont) / ($maxVp - $minVp));
+  $q: calc(-1 * $minVp * $m + $minFont);
+  $m: calc($m * 100);
+
+  // Rounding with precision of 4
+  $m: math.div(math.round($m * 10000), 10000);
+  $q: math.div(math.round($q * 10000), 10000);
+  $minFont: math.div(math.round($minFont * 10000), 10000);
+  $maxFont: math.div(math.round($maxFont * 10000), 10000);
+
+  @return clamp(calc($minFont * 1rem), calc($q * 1rem + calc($m * 1vw)), calc($maxFont * 1rem));
+}`,
+  `@function min-px($minValue, $minFont, $maxFont, $minVp: 320, $maxVp: 1000) {
+  @if not unitless($minValue) or not unitless($minFont) or not unitless($maxFont) or not unitless($minVp) or not unitless($maxVp) {
+    @warn "All arguments should be unitless";
+  }
+  $minFont: calc($minFont / 16);
+  $maxFont: calc($maxFont / 16);
+  $minVp: calc($minVp / 16);
+  $maxVp: calc($maxVp / 16);
+  $minValue: calc($minValue / 16);
+
+  // y = mx + q
+  $m: calc(($maxFont - $minFont) / ($maxVp - $minVp));
+  $q: calc(-1 * $minVp * $m + $minFont);
+  $m: calc($m * 100);
+
+  // Rounding with precision of 4
+  $m: math.div(math.round($m * 10000), 10000);
+  $q: math.div(math.round($q * 10000), 10000);
+  $minFont: math.div(math.round($minFont * 10000), 10000);
+  $maxFont: math.div(math.round($maxFont * 10000), 10000);
+
+  @return min(calc($q * 1rem + calc($m * 1vw)), calc($minValue * 1rem));
+}`,
+  `@function max-px($maxValue, $minFont, $maxFont, $minVp: 320, $maxVp: 1000) {
+  @if not unitless($maxValue) or not unitless($minFont) or not unitless($maxFont) or not unitless($minVp) or not unitless($maxVp) {
+    @warn "All arguments should be unitless";
+  }
+  $minFont: calc($minFont / 16);
+  $maxFont: calc($maxFont / 16);
+  $minVp: calc($minVp / 16);
+  $maxVp: calc($maxVp / 16);
+  $maxValue: calc($maxValue / 16);
+
+  // y = mx + q
+  $m: calc(($maxFont - $minFont) / ($maxVp - $minVp));
+  $q: calc(-1 * $minVp * $m + $minFont);
+  $m: calc($m * 100);
+
+  // Rounding with precision of 4
+  $m: math.div(math.round($m * 10000), 10000);
+  $q: math.div(math.round($q * 10000), 10000);
+  $minFont: math.div(math.round($minFont * 10000), 10000);
+  $maxFont: math.div(math.round($maxFont * 10000), 10000);
+
+  @return max(calc($q * 1rem + calc($m * 1vw)), calc($maxValue * 1rem));
+}`,
+];

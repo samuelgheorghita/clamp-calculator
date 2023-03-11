@@ -1,0 +1,28 @@
+@use "sass:meta";
+
+body:not(.darkmode) {
+  @include meta.load-css("../themes/prismjs-default/prism.css");
+
+  .token.operator {
+    background-color: transparent;
+  }
+
+  pre {
+    box-shadow: 1px 1px 5px #ebebeb;
+  }
+
+  pre[class*="language-"] {
+    background: #ebebeb;
+  }
+}
+body.darkmode {
+  @include meta.load-css("../themes/prismjs-okaidia/prism.css");
+
+  .token.variable {
+    color: #f92672;
+  }
+
+  .bold::after {
+    background-color: #272822;
+  }
+}

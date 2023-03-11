@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script src="./app/assets/themes/prismjs-default/prism.js" defer></script>
+    <script src="./app/js/script.js" type="module" defer></script>
+    <title>Clamp Calculator</title>
+  </head>
+  <body>
+    <main>
+      <header class="main-header">
+        <h1>Clamp() Function Calculator</h1>
+        <button class="btn-darkmode">
+          <img src="./app/assets/images/brightness-6.svg" alt="dark-theme button" />
+        </button>
+      </header>
+      <section class="calculator">
+        <div class="calculator__wrapper wrapper">
+          <h2 class="visually-hidden">Calculator</h2>
+          <form class="calculator__ranges">
+            <div class="calculator__font-range">
+              <div class="calculator__top-div">
+                <h3 class="calculator__top-div__title">Target Values</h3>
+                <fieldset class="font-unit-group">
+                  <legend class="visually-hidden">Target Values</legend>
+                  <input type="radio" id="font-unit-px" name="font-unit" value="px" checked class="unit-input visually-hidden" />
+                  <label for="font-unit-px" class="radio-unit-px">PX</label>
+                  <input type="radio" id="font-unit-rem" name="font-unit" value="rem" class="unit-input visually-hidden" />
+                  <label for="font-unit-rem" class="radio-unit-rem">REM</label>
+                </fieldset>
+                <label for="base-font" class="calculator__top-div__base-label">BASE</label>
+                <div class="calculator__top-div__input-container">
+                  <input type="number" class="calculator__top-div__base-font" id="base-font" value="16" />
+                  <span>PX</span>
+                </div>
+              </div>
+              <div class="calculator__bottom-container">
+                <label for="min-font">MIN</label>
+                <div class="calculator__bottom-container__input-container">
+                  <input name="minFont" id="min-font" class="input" type="number" value="16" />
+                  <span class="unit-ui-font">PX</span>
+                </div>
+                <label for="max-font" class="calculator__bottom-container__label-max">MAX</label>
+                <div class="calculator__bottom-container__input-container">
+                  <input name="maxFont" id="max-font" class="input" type="number" value="44" />
+                  <span class="unit-ui-font">PX</span>
+                </div>
+              </div>
+            </div>
+            <div class="calculator__viewport-range">
+              <div class="calculator__top-div">
+                <h3 class="calculator__top-div__title">Viewport Range</h3>
+                <fieldset class="vp-unit-group">
+                  <legend class="visually-hidden">Viewport Range</legend>
+                  <input type="radio" id="vp-unit-px" name="vp-unit" value="px" checked class="unit-input visually-hidden" />
+                  <label for="vp-unit-px" class="radio-unit-px">PX</label>
+                  <input type="radio" id="vp-unit-rem" name="vp-unit" value="rem" class="unit-input visually-hidden" />
+                  <label for="vp-unit-rem" class="radio-unit-rem">REM</label>
+                </fieldset>
+                <!-- <button class="calculator__top-div__button-px">PX</button> -->
+                <!-- <button class="calculator__top-div__button-rem">REM</button> -->
+                <label for="base-vp" class="calculator__top-div__base-label">BASE</label>
+                <div class="calculator__top-div__input-container">
+                  <input type="number" class="calculator__top-div__base-font" id="base-vp" value="16" />
+                  <span>PX</span>
+                </div>
+              </div>
+              <div class="calculator__bottom-container">
+                <label for="min-vp">MIN</label>
+                <div class="calculator__bottom-container__input-container">
+                  <input name="minVp" id="min-vp" class="input" type="number" value="600" />
+                  <span class="unit-ui-vp">PX</span>
+                </div>
+                <label for="max-vp" class="calculator__bottom-container__label-max">MAX</label>
+                <div class="calculator__bottom-container__input-container">
+                  <input name="maxVp" id="max-vp" class="input" type="number" value="1440" />
+                  <span class="unit-ui-vp">PX</span>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="calculator__result">
+            <code class="calculator__code calculator__result__code">clamp(1rem, -0.25rem + 3.333vw, 2.75rem)</code>
+            <button class="calculator__copy-btn">COPY</button>
+          </div>
+          <div class="calculator__example">
+            <h3>Font Size Example</h3>
+            <div class="calculator__example__container">
+              <code class="calculator__code calculator__result__example">font-size: clamp(1rem, -0.25rem + 3.333vw, 2.75rem);</code>
+              <button class="calculator__copy-btn">
+                COPY
+                <!-- <img src="/app/assets/images/check-svgrepo-com.svg" class="svg-check" alt="Confirmation tick" /> -->
+              </button>
+            </div>
+            <p class="calculator__example__text">This text will scale between 16px at 600px and 44px at 1440px.</p>
+            <div class="calculator__allow-scale">
+              <label for="allow-scale">ALLOW TEXT TO SCALE</label>
+              <input type="checkbox" name="allow-scale" id="allow-scale" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="code">
+        <div class="code__wrapper wrapper">
+          <h2 class="visually-hidden">Details and code</h2>
+          <h3 class="code__title">Calculate clamp() values with custom function using SCSS</h3>
+          <p>
+            This calculator it's a great tool to quickly find the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp">clamp()</a> values that fit your needs. However, this approach greatly affects code readability. The main issue is losing information about the original input values (font size and viewport ranges). It's also best practice to use rem instead of pixels as a unit for text, even though is less readable. <br />
+            A solution may be adding a comment next to the clamp function describing the initial values. This could be a bit tedious and sometimes cause typos, especially if values are changed multiple times.<br />
+            A more efficient solution is to use a custom function. Using Sass, this is what it looks like:
+          </p>
+          <ul class="code__tabs">
+            <li><a data-array-value="0">Clamp</a></li>
+            <li><a data-array-value="1">Min</a></li>
+            <li><a data-array-value="2">Max</a></li>
+          </ul>
+          <div class="code__tab-code">
+            <button class="code__copy-btn" title="copy">
+              <img class="code__copy-icon" src="./app/assets/images/copy-svgrepo-com.svg" alt="copy icon" />
+            </button>
+            <!-- In here, main code snippet will be added with JS -->
+          </div>
+          <h3 class="code__title">Fallback for unsupported older browsers</h3>
+          <p><a href="https://caniuse.com/?search=clamp()">Browser support</a> for clamp function sits above 90% at the time of writing of this article, so it’s already well supported. For unsupported desktop browsers like Internet Explorer, it is enough to supply a fallback value as the unsupported browsers will ignore the entire font-size expression if they cannot parse the clamp function.</p>
+          <div class="code__tab-code">
+            <button class="code__copy-btn" title="copy">
+              <img class="code__copy-icon" src="./app/assets/images/copy-svgrepo-com.svg" alt="copy icon" />
+            </button>
+            <!-- In here, main code snippet will be added with JS -->
+            <pre class="line-numbers"><code class="language-scss">@mixin clamp-px($minFont, $maxFont, $minVp: 320, $maxVp: 1000) {
+  font-size: #{$minFont}px;
+  font-size: clamp-px($minFont, $maxFont, $minVp, $maxVp);
+}</code></pre>
+          </div>
+          <!-- <pre class="line-numbers"><code class="language-scss">@mixin clamp-px($minFont, $maxFont, $minVp: 320, $maxVp: 1000) {
+  font-size: #{$minFont}px;
+  font-size: clamp-px($minFont, $maxFont, $minVp, $maxVp);
+}</code></pre> -->
+          <p class="code__learn-more">Learn more about the clamp() function by reading the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp">documentation</a>.</p>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__copyright">
+        <img src="./app/assets/images/copyright-symbol-svgrepo-com.svg" alt="Copyright icon" />
+        <span>2023</span>
+      </div>
+      <div class="footer__name">Samuel Gheorghita</div>
+      <a class="footer__icon-linkedin" href="https://www.linkedin.com/in/samuel-gheorghita-99b18624a/">
+        <img src="./app/assets/images/icon-linkedin.svg" alt="Linkedin icon" />
+      </a>
+      <a href="https://github.com/samuelgheorghita">
+        <img src="./app/assets/images/icon-github.svg" alt="GitHub icon" />
+      </a>
+    </footer>
+    <div class="div-test">
+      <div class="child-test"></div>
+    </div>
+  </body>
+</html>
