@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="67x67" href="./app/assets/images/c-favicon.png" />
     <link rel="stylesheet" href="./dist/style.css" />
     <script src="./app/assets/themes/prismjs-default/prism.js" defer></script>
     <script src="./app/js/script.js" type="module" defer></script>
@@ -16,8 +16,8 @@
     <main>
       <header class="main-header">
         <h1>Clamp() Function Calculator</h1>
-        <button class="btn-darkmode">
-          <img src="./app/assets/images/brightness-6.svg" alt="dark-theme button" />
+        <button class="btn-darkmode" title="Switch theme">
+          <img src="./app/assets/images/brightness-6.svg" alt="Switch theme button" />
         </button>
       </header>
       <section class="calculator">
@@ -63,8 +63,6 @@
                   <input type="radio" id="vp-unit-rem" name="vp-unit" value="rem" class="unit-input visually-hidden" />
                   <label for="vp-unit-rem" class="radio-unit-rem">REM</label>
                 </fieldset>
-                <!-- <button class="calculator__top-div__button-px">PX</button> -->
-                <!-- <button class="calculator__top-div__button-rem">REM</button> -->
                 <label for="base-vp" class="calculator__top-div__base-label">BASE</label>
                 <div class="calculator__top-div__input-container">
                   <input type="number" class="calculator__top-div__base-font" id="base-vp" value="16" />
@@ -93,10 +91,7 @@
             <h3>Font Size Example</h3>
             <div class="calculator__example__container">
               <code class="calculator__code calculator__result__example">font-size: clamp(1rem, -0.25rem + 3.333vw, 2.75rem);</code>
-              <button class="calculator__copy-btn">
-                COPY
-                <!-- <img src="/app/assets/images/check-svgrepo-com.svg" class="svg-check" alt="Confirmation tick" /> -->
-              </button>
+              <button class="calculator__copy-btn">COPY</button>
             </div>
             <p class="calculator__example__text">This text will scale between 16px at 600px and 44px at 1440px.</p>
             <div class="calculator__allow-scale">
@@ -121,10 +116,9 @@
             <li><a data-array-value="2">Max</a></li>
           </ul>
           <div class="code__tab-code">
-            <button class="code__copy-btn" title="copy">
+            <button class="code__copy-btn" title="Copy">
               <img class="code__copy-icon" src="./app/assets/images/copy-svgrepo-com.svg" alt="copy icon" />
             </button>
-            <!-- In here, main code snippet will be added with JS -->
           </div>
           <h3 class="code__title">Fallback for unsupported older browsers</h3>
           <p><a href="https://caniuse.com/?search=clamp()">Browser support</a> for clamp function sits above 90% at the time of writing of this article, so it’s already well supported. For unsupported desktop browsers like Internet Explorer, it is enough to supply a fallback value as the unsupported browsers will ignore the entire font-size expression if they cannot parse the clamp function.</p>
@@ -132,16 +126,11 @@
             <button class="code__copy-btn" title="copy">
               <img class="code__copy-icon" src="./app/assets/images/copy-svgrepo-com.svg" alt="copy icon" />
             </button>
-            <!-- In here, main code snippet will be added with JS -->
             <pre class="line-numbers"><code class="language-scss">@mixin clamp-px($minFont, $maxFont, $minVp: 320, $maxVp: 1000) {
   font-size: #{$minFont}px;
   font-size: clamp-px($minFont, $maxFont, $minVp, $maxVp);
 }</code></pre>
           </div>
-          <!-- <pre class="line-numbers"><code class="language-scss">@mixin clamp-px($minFont, $maxFont, $minVp: 320, $maxVp: 1000) {
-  font-size: #{$minFont}px;
-  font-size: clamp-px($minFont, $maxFont, $minVp, $maxVp);
-}</code></pre> -->
           <p class="code__learn-more">Learn more about the clamp() function by reading the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clamp">documentation</a>.</p>
         </div>
       </section>
@@ -152,10 +141,10 @@
         <span>2023</span>
       </div>
       <div class="footer__name">Samuel Gheorghita</div>
-      <a class="footer__icon-linkedin" href="https://www.linkedin.com/in/samuel-gheorghita-99b18624a/">
+      <a class="footer__icon-linkedin" href="https://www.linkedin.com/in/samuel-gheorghita-99b18624a/" title="Linkedin">
         <img src="./app/assets/images/icon-linkedin.svg" alt="Linkedin icon" />
       </a>
-      <a href="https://github.com/samuelgheorghita">
+      <a href="https://github.com/samuelgheorghita" title="Github">
         <img src="./app/assets/images/icon-github.svg" alt="GitHub icon" />
       </a>
     </footer>

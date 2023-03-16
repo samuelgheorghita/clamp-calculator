@@ -3,11 +3,9 @@
 .main-header {
   h1 {
     min-height: 300px;
-    // font-size: 22px;
     @include t.clamp-px(10, 50, 100, 600);
     color: var(--text-primary);
     background-color: var(--bg-secondary);
-    // background-color: #0a1e26;
     display: flex;
     justify-content: center;
     align-items: center;

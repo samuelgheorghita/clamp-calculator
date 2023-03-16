@@ -156,8 +156,17 @@ const closureClampCalculator = (() => {
 
   const closureLocalStorage = (() => {
     window.addEventListener("DOMContentLoaded", () => {
+      // If it's the first time accessing this website, then set default values
       if (localStorage.length === 0) {
-        localStorage.setItem("isDarkThemeOn", "false");
+        console.log(window.matchMedia("(prefers-color-sheme: dark").matches);
+        // Checking if matchMedia is supported. Then finding out if user's theme is dark
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          localStorage.setItem("isDarkThemeOn", "true");
+          document.body.classList.toggle("darkmode");
+          closureChangeTheme.changeScrollbarTheme();
+        } else {
+          localStorage.setItem("isDarkThemeOn", "false");
+        }
         localStorage.setItem("isFontUnitPx", "true");
         localStorage.setItem("isVpUnitPx", "true");
         localStorage.setItem("baseFont", 16);
@@ -169,6 +178,7 @@ const closureClampCalculator = (() => {
       } else {
         if (localStorage.getItem("isDarkThemeOn") === "true") {
           document.body.classList.add("darkmode");
+          closureChangeTheme.changeScrollbarTheme();
         }
 
         isFontUnitPx = JSON.parse(localStorage.getItem("isFontUnitPx"));
@@ -395,6 +405,8 @@ const closureCreateTabs = (() => {
   });
 })();
 
+const testVar = "testVar";
+
 // Darkmode feature
 const closureChangeTheme = (() => {
   const changeThemeBtn = document.querySelector(".btn-darkmode");
@@ -418,9 +430,11 @@ const closureChangeTheme = (() => {
 
     isDark = !isDark;
   }
+
+  return { changeScrollbarTheme };
 })();
 
-// The function returns "sf" number of digits.
+// The function returns "sf" (significant figures) number of digits.
 function formatNumber(num, sf = 4) {
   num = num.toFixed(sf);
 

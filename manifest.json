@@ -1,0 +1,15 @@
+{
+  "short_name": "Clamp",
+  "name": "Clamp Calculator",
+  "icons": [
+    {
+      "src": "./app/assets/images/c-favicon.png",
+      "sizes": "67x67",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "browser",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

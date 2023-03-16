@@ -13,9 +13,6 @@
     margin-top: 40px;
   }
 
-  &__ranges {
-  }
-
   &__font-range {
     flex: 1;
     margin-bottom: 30px;
@@ -88,9 +85,6 @@
       margin-right: 10px;
     }
 
-    &__label-max {
-    }
-
     &__input-container {
       position: relative;
 
@@ -160,7 +154,11 @@
 
     label {
       font-size: 13px;
-      // letter-spacing: 0.3px;
+    }
+
+    label,
+    input {
+      cursor: pointer;
     }
   }
 
@@ -209,21 +207,15 @@
     }
   }
 
-  // input[type="checkbox"] {
-  //   display: block;
-  // }
-
   input[type="checkbox"] {
     appearance: none;
     background-color: #fff;
     margin: 0;
     font: inherit;
-    // color: red;
     width: 0.8em;
     height: 0.8em;
     border: 0.15em solid var(--text-primary);
     border-radius: 0.15em;
-    // transform: translateY(-0.075em);
     display: grid;
     place-content: center;
   }
@@ -234,7 +226,6 @@
     height: 0.6em;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    // box-shadow: inset 1em 1em var(--primary);
     background-color: black;
   }
 
