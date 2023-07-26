@@ -18,7 +18,7 @@ const closureClampCalculator = (() => {
   let baseVp = 16; // px
 
   let minFont = 1; // rem
-  let maxFont = 2.5; // rem
+  let maxFont = 2.75; // rem
   let minVp = 37.5; // rem
   let maxVp = 90; // rem
 
@@ -155,10 +155,12 @@ const closureClampCalculator = (() => {
   });
 
   const closureLocalStorage = (() => {
+    const properties = ["isFontUnitPx", "isVpUnitPx", "baseFont", "baseVp", "minFont", "maxFont", "minVp", "maxVp"];
     window.addEventListener("DOMContentLoaded", () => {
-      // If it's the first time accessing this website, then set default values
-      if (localStorage.length === 0) {
-        console.log(window.matchMedia("(prefers-color-sheme: dark").matches);
+      // If it's the first time accessing this website, then set default values.
+      // If any of the required properties are missing then reset all to default.
+      const localStorageProps = Object.keys({ ...localStorage });
+      if (!properties.every((item) => localStorageProps.includes(item))) {
         // Checking if matchMedia is supported. Then finding out if user's theme is dark
         if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
           localStorage.setItem("isDarkThemeOn", "true");
@@ -172,7 +174,7 @@ const closureClampCalculator = (() => {
         localStorage.setItem("baseFont", 16);
         localStorage.setItem("baseVp", 16);
         localStorage.setItem("minFont", 1);
-        localStorage.setItem("maxFont", 2.5);
+        localStorage.setItem("maxFont", 2.75);
         localStorage.setItem("minVp", 37.5);
         localStorage.setItem("maxVp", 90);
       } else {
@@ -227,7 +229,7 @@ const closureClampCalculator = (() => {
       }
     });
 
-    // Below here i change dynamically the localStorage. Ideally I want to set these values only
+    // Below here I change dynamically the localStorage. Ideally I want to set these values only
     // when closing the page. But the solution I found (using "beforeunload" event listener)
     // is not reliable, especially on mobile.
     const changeThemeBtn = document.querySelector(".btn-darkmode");
@@ -380,7 +382,7 @@ const closureCreateTabs = (() => {
   });
 
   // At this point PrimeJS has already run. I'm saving all snippets on memory (already formatted by PrismJS)
-  // Then i remove all snippets that are extra.
+  // Then I remove all snippets that are extra.
   addEventListener("DOMContentLoaded", (e) => {
     const tabElements = document.querySelectorAll(".code__tab-element");
     tabElements.forEach((snippet, index) => {
