@@ -1,0 +1,25 @@
+{
+  "name": "clamp-calculator",
+  "version": "1.0.0",
+  "description": "This app (based on a new high order function) helps developers build and maintain websites with resizable text that adjust/adapt based on (user's) screen size and on 4 intuitive parameters instead of the classical non-intuitive ones which are disliked by developers. These parameters are: the desirable font size at minimum resolution and the desirable font size at max resolution. Anyone who develops with SCSS can easily use the new function which is handy as it significantly improves code readability / maintainability.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelgheorghita/clamp-calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuelgheorghita/clamp-calculator/issues"
+  },
+  "homepage": "https://github.com/samuelgheorghita/clamp-calculator#readme",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0"
+  }
+}
